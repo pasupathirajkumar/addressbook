@@ -1,5 +1,6 @@
 #include "contact.h"
-// Dummy contact data
+
+// Dummy contact data for testing
 static Contact dummyContacts[] = {
     {"John Doe", "1234567890", "john@example.com"},
     {"Alice Smith", "0987654321", "alice@example.com"},
@@ -12,11 +13,14 @@ static Contact dummyContacts[] = {
     {"Hannah Clark", "5556667777", "hannah@example.com"},
     {"Ian Lewis", "8889990000", "ian@example.com"}};
 
+// Function to initialize the address book with dummy contacts
 void initialize(AddressBook *addressBook)
 {
+    // Initialize the contact count to 0
     addressBook->contactCount = 0;
 
-    for (int i = 0; i < sizeof(dummyContacts)/sizeof(dummyContacts[0]); i++)
+    // Add the dummy contacts to the address book
+    for (int i = 0; i < sizeof(dummyContacts) / sizeof(dummyContacts[0]); i++)
     {
         addressBook->contacts[i] = dummyContacts[i];
         addressBook->contactCount++;

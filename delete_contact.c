@@ -1,14 +1,18 @@
 #include "contact.h"
 
+// Function to delete a contact
 void deleteContact(AddressBook *addressBook)
 {
 
+    // Display the menu
     printf("\n+------------------------------------+\n");
     printf("|        Delete a contact            |\n");
     printf("+------------------------------------+\n\n");
 
+    // Search for the contact to delete
     int index = searchContact(addressBook);
 
+    // If the contact is not found, return
     if (index == -1)
     {
         return;
@@ -18,8 +22,10 @@ void deleteContact(AddressBook *addressBook)
 
     char choice;
 
+    // Get the user choice
     scanf(" %c", &choice);
 
+    // To confirm the deletion of the contact make sure the user enters 'y' or 'Y'
     if (!(choice == 'y' || choice == 'Y'))
     {
         printf("\n+------------------------------------+\n");
@@ -28,11 +34,13 @@ void deleteContact(AddressBook *addressBook)
         return;
     }
 
+    // Shift the contacts to the left to remove the contact
     for (int i = index; i < addressBook->contactCount - 1; i++)
     {
         addressBook->contacts[i] = addressBook->contacts[i + 1];
     }
 
+    // Decrement the contact count
     addressBook->contactCount--;
 
     printf("\n+------------------------------------+\n");
